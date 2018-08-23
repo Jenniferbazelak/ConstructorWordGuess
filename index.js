@@ -1,23 +1,23 @@
 var Word= require("./word.js");
 // var Letter= require("./letter.js");
-var inquirer = require(inquirer);
+var inquirer = require("inquirer");
 
-var guessedLeft= 8;
+var guessesLeft= 8;
 var words = ["beach", "sand", "ocean", "waves", "fish", "sun", "swimsuit", "towel", "seashell"];
 
 //choose random word from words array
 var randomWord = words[Math.floor(Math.random() * words.length)];
 
-
+var newWordTest = new Word (randomWord);
 
 //define functions
 function displayWord(){
     var newWord = new Word (randomWord);
-    console.log(newWord.makeGuess());
+    
 }
 
 function askForLetter() {
-    displayWord();
+   
         inquirer
             .prompt([{
 
@@ -29,14 +29,15 @@ function askForLetter() {
             }])
 
             .then(function (answer) {
-                userGuess= answer.toLowerCase();
-                
+                userGuess= answer.letter.toLowerCase();
+                newWordTest.addLetters();
+                newWordTest.makeGuess();
                 
             });
     }
 
     //start game
-
+displayWord();
 askForLetter();
  
  

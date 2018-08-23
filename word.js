@@ -17,9 +17,12 @@ var Word = function(randomWord){
     }
 
     this.makeGuess = function(){
+        console.log("makeguess")
         for (var i = 0; i< this.letters.length; i++){
             this.letters[i].ifGuessed()
         }
+        console.log(this.letters)
+       
     }
     this.check = function(userGuess){
         for (var i = 0; i< this.letters.length; i++){

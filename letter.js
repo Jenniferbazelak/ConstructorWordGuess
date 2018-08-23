@@ -6,16 +6,16 @@
 
 
 var Letter = function(character){
-    this.character= character
+    this.character= character.toLowerCase();
     this.beenGuessed= false;
+    
     this.ifGuessed= function(){
-        if (beenGuessed) {
-            return character
+        if (this.beenGuessed) {
+            return this.character
     } else {
         return (" _ ")
     }
-
-    }
+}
     this.checkGuess= function(userGuess){
         if (userGuess === this.character){
             this.beenGuessed = true;
@@ -23,6 +23,8 @@ var Letter = function(character){
             this.beenGuessed =false;
         }
     }
+
+  
 
     };
 

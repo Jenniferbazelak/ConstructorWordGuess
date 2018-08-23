@@ -10,12 +10,22 @@ var Word = function(randomWord){
     this.randomWord = randomWord.split("");
     this.letters = [];
     this.addLetters = function (){
-        this.letters.push( new Letter (randomword[i]))
+        for (var i=0; i<this.randomWord.length; i++){
+        var newLetter = new Letter(randomWord[i]);
+            this.letters.push(newLetter);
+        }
     }
 
-
-    this.addWord = function(){
-        this.word.push(new Letter());
-}}
+    this.makeGuess = function(){
+        for (var i = 0; i< this.letters.length; i++){
+            this.letters[i].ifGuessed()
+        }
+    }
+    this.check = function(userGuess){
+        for (var i = 0; i< this.letters.length; i++){
+            this.letters[i].checkGuess(userGuess)
+        }
+    }
+}
 
 module.exports = Word;

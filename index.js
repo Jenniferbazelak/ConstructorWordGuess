@@ -46,7 +46,7 @@ function askForLetter(randomWord) {
                 reset();
             }
 
-            if (guessesLeft > 0) {
+            else if (guessesLeft > 0) {
                 askForLetter(randomWord);
             } else {
                 console.log("You Lose!");
